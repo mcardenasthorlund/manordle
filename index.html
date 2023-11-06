@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manordle</title>
+
+    <!-- Opciones para PWA -->
+    <!-- Manifiesto -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <!-- Index JS-->
+    <script src="assets/js/index.js"></script>
+    <!-- Fin Opciones para PWA -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Etiquetas Meta -->
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Manordle" />
+    <meta name="description" content="Juego del wordle de Manolo" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ifcd0110.nidea-soluciones.com/manordle/index.html" />
+    <meta property="og:title" content="Manordle" />
+    <meta property="og:description"
+        content="Juego del wordle de Manolo" />
+    <meta property="og:image" content="https://ifcd0110.nidea-soluciones.com/manordle/assets/img/icono.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ifcd0110.nidea-soluciones.com/manordle/index.html" />
+    <meta property="twitter:title" content="Manordle" />
+    <meta property="twitter:description"
+        content="Juego del wordle de Manolo" />
+    <meta property="twitter:image" content="https://ifcd0110.nidea-soluciones.com/manordle/assets/img/icono.png" />
+
+
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <script src="assets/js/aplicacion.js"></script>
+
+    <script>
+        let objAplicacion;
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelectorAll('.tecla').forEach(tecla => {
+                tecla.addEventListener('click', () => {
+                    if (tecla.classList.contains('borrar')) {
+                        objAplicacion.borrar();
+                    } else if (tecla.classList.contains('enviar')) {
+                        objAplicacion.procesar();
+                    } else {
+                        objAplicacion.pulsarTecla(tecla.innerHTML);
+                    }
+                })
+            });
+
+            objAplicacion = new Wordle();
+            objAplicacion.inicializar();
+        })
+    </script>
+</head>
+
+<body>
+
+    <main class="contenedor">
+        <!-- Div de inicio -->
+        <div id="div-inicial" class="div-contenedor">
+            <img src="assets/img/logo.jpg" style="width: 90%;">
+            <button class="btn btn-warning" id="btnComenzar">Comenzar el juego <i class="bi bi-chevron-double-right"
+                    style="color:white"></i></button>
+
+            <small class="mt-5">Manuel Cárdenas Thorlund
+                <br>
+                &copy; 2023 Todos los derechos reservados
+                <br>
+                <img src="assets/img/logo-manolo.png" alt="" class="img-fluid mt-3" style="max-width: 200px;">
+            </small>
+        </div>
+
+        <div id="div-juego" class="div-contenedor" style="display: none;position: relative">
+
+            <!-- Palabras -->
+            <div id="palabras" class="palabras">
+
+            </div>
+            <div id="solucion" class="solucion"></div>
+            <!-- Teclado -->
+            <div class="teclado" id="keyboard">
+                <div class="fila-teclado">
+                    <button class="tecla" tabindex="0" type="button" aria-label="q">q</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="w">w</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="e">e</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="r">r</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="t">t</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="y">y</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="u">u</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="i">i</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="o">o</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="p">p</button>
+                </div>
+                <div class="fila-teclado">
+                    <button class="tecla" tabindex="0" type="button" aria-label="a">a</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="s">s</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="d">d</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="f">f</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="g">g</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="h">h</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="j">j</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="k">k</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="l">l</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="ñ">ñ</button>
+                </div>
+                <div class="fila-teclado3">
+                    <button class="tecla enviar" tabindex="0" type="button" aria-label="procesar palabra"><i
+                            class="bi bi-check-lg"></i></button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="z">z</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="x">x</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="c">c</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="v">v</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="b">b</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="n">n</button>
+                    <button class="tecla" tabindex="0" type="button" aria-label="m">m</button>
+                    <button class="tecla borrar" tabindex="0" type="button" aria-label="borrar letra">
+                        <i class="bi bi-eraser-fill"></i></button>
+                </div>
+            </div>
+            <div class="text-center mt-2 mb-2">
+                <button class="btn btn-warning btn-sm" id="btnNuevoJuego">Nuevo juego <i
+                        class="bi bi-chevron-double-right" style="color:white;"></i></button>
+            </div>
+
+            <div class="fixed-bottom">
+                <img src="assets/img/logo.jpg" style="max-height: 60px;">
+                <img src="assets/img/logo-manolo.png" alt="" style="max-height: 40px;">
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

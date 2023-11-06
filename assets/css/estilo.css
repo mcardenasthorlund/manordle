@@ -1,0 +1,141 @@
+body {
+    background-color: #111112;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    color: white;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    background-color: #111112;
+}
+
+.div-contenedor {
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.palabras {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    width: 100%;
+    margin-bottom: 30px;
+    
+}
+
+.letra{
+    border: solid 3px #ffc300;
+    border-radius: 12px;
+    height: 70px;
+    background-color: #414141;
+    color:white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-top: 5%;
+}
+.seleccionada{
+    box-shadow: rgba(222, 226, 228, 0.822) 0px 2px 4px 0px, rgba(237, 239, 240, 0.849) 0px 2px 16px 0px;
+}
+.correcta{
+    background-color: green;
+
+}
+.incorrecta{
+    background-color: rgb(235, 192, 4);   
+}
+
+.solucion{
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    left: 0;
+    background-color: white;
+    color: black;
+    font-size: 50px;
+    transform: rotate(322deg);
+    border-radius: 10px;
+    display: none;
+}
+/* Teclado */
+.teclado {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.fila-teclado {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0px, 1fr));
+    gap: 5px;
+}
+
+.fila-teclado3 {
+    display: flex;
+    gap: 5px;
+}
+
+.tecla {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.2;
+    padding: 4px 10px;
+    border-radius: 3px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    background-color: #efefef;
+    box-shadow: none;
+    min-width: 0px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    color: #111112;
+    height: 56px;
+}
+
+.tecla-borrar {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: 1.5rem;
+}
+
+.tecla:active {
+    background-color: #111112;
+    color: white;
+}
